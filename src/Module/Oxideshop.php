@@ -5,11 +5,12 @@
  * See LICENSE file for license details.
  */
 
+declare(strict_types=1);
+
 namespace OxidEsales\Codeception\Module;
 
 require_once __DIR__ . '/../../../../oxid-esales/testing-library/base.php';
 
-use Codeception\Exception\ElementNotFound;
 use Codeception\Lib\Interfaces\DependsOnModule;
 use Codeception\Module;
 use Codeception\Module\Db;
@@ -30,15 +31,9 @@ class Oxideshop extends Module implements DependsOnModule
      */
     private $db;
 
-    /**
-     * @var array
-     */
-    protected $config = ['screen_shot_url' => ''];
+    protected array $config = ['screen_shot_url' => ''];
 
-    /**
-     * @return array
-     */
-    public function _depends()
+    public function _depends(): array
     {
         return [
             WebDriver::class => 'Codeception\Module\WebDriver is required',

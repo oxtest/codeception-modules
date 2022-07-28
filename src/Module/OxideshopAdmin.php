@@ -1,8 +1,11 @@
 <?php
+
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
  */
+
+declare(strict_types=1);
 
 namespace OxidEsales\Codeception\Module;
 
@@ -10,10 +13,6 @@ require_once __DIR__.'/../../../../oxid-esales/testing-library/base.php';
 
 use Codeception\Lib\Interfaces\DependsOnModule;
 
-/**
- * Class OxideshopAdmin
- * @package OxidEsales\Codeception\Module
- */
 class OxideshopAdmin extends \Codeception\Module implements DependsOnModule
 {
     /**
@@ -53,10 +52,7 @@ class OxideshopAdmin extends \Codeception\Module implements DependsOnModule
      */
     private $webdriver;
 
-    /**
-     * @return array
-     */
-    public function _depends()
+    public function _depends(): array
     {
         return [
             \Codeception\Module\WebDriver::class => 'Codeception\Module\WebDriver is required',
